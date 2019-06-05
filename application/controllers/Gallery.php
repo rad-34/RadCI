@@ -18,9 +18,19 @@ class Gallery extends CI_Controller {
 	 * map to /index.php/welcome/<method_name>
 	 * @see https://codeigniter.com/user_guide/general/urls.html
 	 */
+	public function index()
+	{
+		
+	}
 	public function addImage()
 	{
 		
+	}
+	public function loadImage()
+	{
+		$this->load->model('GalleryModel');
+		$data['datas']=$this->GalleryModel->getImage(); 
+    	$this->load->view('gallery',$data);
 	}
 
 	

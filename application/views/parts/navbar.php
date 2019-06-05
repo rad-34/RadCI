@@ -15,7 +15,7 @@
     <ul class="nav navbar-nav">
       <li><a href="<?php echo base_url('index.php/Welcome'); ?>">Home</a></li>
       
-      <li><a href="<?php echo base_url('index.php/Welcome/gallery'); ?>">Gallery</a></li>
+      <li><a href="<?php echo base_url('index.php/Gallery/loadImage'); ?>">Gallery</a></li>
     </ul>
     <ul class="nav navbar-nav navbar-right">
       <li><a href="#"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>

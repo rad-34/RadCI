@@ -29,66 +29,36 @@
 		</div>
 
 	</div>
-	<div id="myCarousel" class="carousel slide" data-ride="carousel" style="margin-top: 20px;"> <!-- This is the bootstrap slideshow -->
-			  <!-- Indicators -->
+	<div id="myCarousel" class="carousel slide" data-ride="carousel" style="margin-top: 20px;"> 
 			  <ol class="carousel-indicators">
-			  <?php 
-
-
-				  	$con=mysqli_connect("localhost","root","","rad");
-		 			if ($con) {
-		 				//echo "Connection Success";
-		 			}else
-		 			{
-		 				echo "Connection Failed";
-		 			}
-		 			
-		 			$query="SELECT * FROM gallery";
-		 			$result=mysqli_query($con,$query);
-		 			$i=0;
-		 			while($row=mysqli_fetch_array($result))
-		 			{
-		 				echo '<li data-target="#myCarousel" data-slide-to="$i" class="active"></li>';
-		 				$i+=$i;
-		 				
-		 			}
+			 <?php 
+					 for($i=0;!empty($datas[$i]);$i++)
+    					{      
+							echo '<li data-target="#myCarousel" data-slide-to="$i" class="active"></li>';
+						}
 		 			echo '<li data-target="#myCarousel" data-slide-to="0"></li>';
 		 			
-			  	?>
+			  ?>
 				</ol>
 				<div class="carousel-inner">
-				<?php 
+				<?php
 
-
-				  	$con1=mysqli_connect("localhost","root","","rad");
-		 			if ($con1) {
-		 				//echo "Connection Success";
-		 			}else
-		 			{
-		 				echo "Connection Failed";
-		 			}
-		 			
-		 			$query1="SELECT * FROM gallery";
-		 			$result1=mysqli_query($con1,$query1);
-		 			$y=0;
-		 			while($row1=mysqli_fetch_array($result1))
-		 			{
-		 				if($y==1)
+					 for($y=0;!empty($datas[$y]);$y++)
+    					{      
+							if($y==1)
 		 				{
-		 					echo '<div class="item active"> /*I made this active statement*/
-						      <img style="height:500px;width:100%;" alt="New York.$y" src="data:image;base64,'.$row1[2].' ">
+		 					echo '<div class="item active"> 
+						      <img style="height:500px;width:100%;" alt="New York.$y" src="data:image;base64,'.$datas[$y]->photo.' ">
 						    </div>';
 		 				}
 		 				else
 		 				{
 		 					echo '<div class="item">
-						      <img style="height:500px;width:100%;" alt="New York.$y" src="data:image;base64,'.$row1[2].' ">
+						      <img style="height:500px;width:100%;" alt="New York.$y" src="data:image;base64,'.$datas[$y]->photo.' ">
 						    </div>';
 		 				}
-		 				
-						    $y+=1;
-		 				
-		 			}
+						}
+		 			
 		 			
 			  	?>
 			  </div>
