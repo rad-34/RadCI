@@ -2,27 +2,59 @@
 defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Gallery extends CI_Controller {
-
-	/**
-	 * Index Page for this controller.
-	 *
-	 * Maps to the following URL
-	 * 		http://example.com/index.php/welcome
-	 *	- or -
-	 * 		http://example.com/index.php/welcome/index
-	 *	- or -
-	 * Since this controller is set as the default controller in
-	 * config/routes.php, it's displayed at http://example.com/
-	 *
-	 * So any other public methods not prefixed with an underscore will
-	 * map to /index.php/welcome/<method_name>
-	 * @see https://codeigniter.com/user_guide/general/urls.html
-	 */
-	public function index()
+	function _construct()
+	{
+		parent::_construct;
+		$this->load->helper('form');
+	}
+	public function openAddImage()
+	{
+			
+ 			if(isset($_POST['submit']))
+ 		{
+ 			if(getimagesize($_FILES['image']['tmp_name'])==FALSE) //check the image selected
+ 			{
+ 				echo "Please select an image.";
+ 			}
+ 			else
+ 			{
+ 				$image=addslashes($_FILES['image']['tmp_name']);
+ 				$name=addslashes($_FILES['image']['name']);
+ 				$image=file_get_contents($image);
+				 $image=base64_encode($image);
+				 $data1['photo']=$image;
+				 $data1['name']=$name;
+				 $this->load->model('GalleryModel');
+				$this->GalleryModel->saveImage($data1); 
+					}
+				}
+				$this->load->model('GalleryModel');
+			$data['datas']=$this->GalleryModel->getImage(); 
+			$this->load->view('showGallery',$data);
+				
+	}
+	
+	public function openEditImage()
+	{
+		$this->load->view('editGallery');
+	}
+	public function openDeleteImage()
+	{
+		$this->load->model('GalleryModel');
+		$data['datas']=$this->GalleryModel->getImage(); 
+    	$this->load->view('deleteGallery',$data);
+	}
+	public function openUpdateImage()
+	{
+		$this->load->model('GalleryModel');
+		$data['datas']=$this->GalleryModel->getImage(); 
+    	$this->load->view('updateGallery',$data);
+	}
+	public function updateImage()
 	{
 		
 	}
-	public function addImage()
+	public function deleteImage()
 	{
 		
 	}

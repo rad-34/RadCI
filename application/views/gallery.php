@@ -13,13 +13,10 @@
 				<div class="col-md-2"></div>
 				<div class="col-md-8">
 						<div class="row" >
-							
 								
-							<div class="col-md-4"><a style="font-size: 20px;font-weight: bold;" href="gallery.php" type="button" class="btn btn-success"><i class="fas fa-plus-circle" style="padding: 10px;"></i>Add Images</a></div>
-								
-								
-							<div class="col-md-4"><a href="update.php" style="font-size: 20px;font-weight: bold;" type="button" class="btn btn-info"><i style="padding: 10px;" class="far fa-edit"></i>Update Images</a></div>
-							<div class="col-md-4"><a href="delete.php" style="font-size: 20px;font-weight: bold;" type="button" class="btn btn-danger"><i style="padding: 10px;" class="far fa-trash-alt"></i>Delete Images</a></div>
+							<div class="col-md-4"><a style="font-size: 20px;font-weight: bold;" href="<?php echo base_url('index.php/Gallery/openAddImage'); ?>" type="button" class="btn btn-success"><i class="fas fa-plus-circle" style="padding: 10px;"></i>Add Images</a></div>	
+							<div class="col-md-4"><a href="<?php echo base_url('index.php/Gallery/openUpdateImage'); ?>" style="font-size: 20px;font-weight: bold;" type="button" class="btn btn-info"><i style="padding: 10px;" class="far fa-edit"></i>Update Images</a></div>
+							<div class="col-md-4"><a href="<?php echo base_url('index.php/Gallery/openDeleteImage'); ?>" style="font-size: 20px;font-weight: bold;" type="button" class="btn btn-danger"><i style="padding: 10px;" class="far fa-trash-alt"></i>Delete Images</a></div>
 
 						</div>
 						<div class="col-md-2"></div>
