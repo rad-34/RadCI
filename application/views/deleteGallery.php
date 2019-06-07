@@ -17,20 +17,15 @@
  				echo '<li class="list-group-item" style="padding-top:30px;padding-bottom:30px;">';
  				echo '<div class="col-md-8">'.$datas[$i]->name.'</div>';
  				echo '<div class="col-md-2"><img height="5%" width="25%" style="margin-top:-20px;" src="data:image;base64,'.$datas[$i]->photo.' "></div>';
- 				echo '<div class="col-md-1"><form method="post" enctype="multipart/form-data" action="delete.php"><input name="submit" value="Delete" type="submit" class="far fa-trash-alt btn btn-danger" style="padding-top:-10px;"></input>
+				 echo '<div class="col-md-1"><form method="post" enctype="multipart/form-data" action="';
+				 echo  base_url('index.php/Gallery/deleteImage');
+				 echo '"><input name="submit" value="Delete" type="submit" class="far fa-trash-alt btn btn-danger" style="padding-top:-10px;"></input>
  					<input type="hidden" name="id" value='.$datas[$i]->id.'>
  				</form></div>';
  				echo '</li>';
  				echo '</div>' ;
  			}
- 			if(isset($_POST['submit']))
- 			{
-
- 				$tagId= $_POST['id'];
- 				$con=mysqli_connect("localhost","root","","rad");
- 				$sql="DELETE FROM gallery WHERE id=$tagId"; //delete query
- 				$result=mysqli_query($con,$sql);//execute query
- 			}
+ 			
 
  			?>
 </ul>
