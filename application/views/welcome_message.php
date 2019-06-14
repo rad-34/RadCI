@@ -2,7 +2,7 @@
 <html>
 <head>
 	<title>WELCOME ! Meegahajandura Gramaniladari Devision</title>
-	<?php include 'parts/navbar.php'; ?>
+	<?php include 'parts/navbar1.php'; ?>
 
 </head>
 <body>
