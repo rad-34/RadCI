@@ -23,7 +23,6 @@
 <div class="container">
 
     <div class="row">
-    <?php echo validation_errors(); ?>
         <div class="col">
             <div class="shadow-sm bg-white h-100">
                 <div class="border-bottom p-4">
