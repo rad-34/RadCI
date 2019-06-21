@@ -21,10 +21,10 @@ class Gallery extends CI_Controller {
  				$image=addslashes($_FILES['image']['tmp_name']);
  				$name=addslashes($_FILES['image']['name']);
  				$image=file_get_contents($image);
-				 $image=base64_encode($image);
-				 $data1['photo']=$image;
-				 $data1['name']=$name;
-				 $this->load->model('GalleryModel');
+				$image=base64_encode($image);
+				$data1['photo']=$image;
+				$data1['name']=$name;
+				$this->load->model('GalleryModel');
 				$this->GalleryModel->saveImage($data1); 
 				}
 				}

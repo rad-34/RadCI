@@ -20,8 +20,7 @@ class PeopleDetails extends CI_Controller {
             
         }else if(isset($_POST['btnDelete'])){
             $nic = $_POST['nic'];
-            echo "$nic";
-    
+                
             //Delete a record in a database
             $this->people_delete($nic);
         
@@ -33,21 +32,22 @@ class PeopleDetails extends CI_Controller {
     public function index()
     {       
         $this->load->database();
-        $data['h']=$this->PeopleModel->people_select();        
+        $data['h']=$this->PeopleModel->people_select();   
+        // var_dump($data);     
         $this->load->view('people_view', $data);        
     }
 
     public function people_add()
     {
         $data = array(
-            'nic' => $this->input->post('nic'),
-            'name' => $this->input->post('name'),
-            'address' => $this->input->post('address'),
-            'phone_no' => $this->input->post('phone_no'),
-            'status' => $this->input->post('status')            
+            'nic' => $this->input->post('insert_nic'),
+            'name' => $this->input->post('insert_name'),
+            'address' => $this->input->post('insert_address'),
+            'phone_no' => $this->input->post('insert_phone_no'),
+            'status' => $this->input->post('insert_status')            
         );
 
-        var_dump($data);
+        // var_dump($data);
         $insert = $this->PeopleModel->people_add($data);
         echo json_encode(array("status" => TRUE));
         redirect(base_url('index.php/peopledetails'));
@@ -56,13 +56,16 @@ class PeopleDetails extends CI_Controller {
 
     public function people_update()
     {
+        
         $data = array(
-            'name' => $this->input->post('name'),
-            'address' => $this->input->post('address'),
-            'phone_no' => $this->input->post('phone_no'),
-            'status' => $this->input->post('status')
+            'name' => $this->input->post('edit_name'),
+            'address' => $this->input->post('edit_address'),
+            'phone_no' => $this->input->post('edit_phone_no'),
+            'status' => $this->input->post('edit_status')
         );
-        $this->PeopleModel->people_update(array('nic'=> $this->input->post('nic')),$data);
+
+        // var_dump($data);
+        $this->PeopleModel->people_update(array('nic'=> $this->input->post('edit_nic')),$data);
         echo json_encode(array("status" => TRUE));
         redirect(base_url('index.php/peopledetails'));
 
@@ -75,5 +78,15 @@ class PeopleDetails extends CI_Controller {
         redirect(base_url('index.php/peopledetails'));
     }
 
+    public function view_by_id($nic){
+        $h=$this->PeopleModel->view_by_id($nic);
+        $data['h']=$h;
+        // var_dump($data);
+        $this->load->view('people_details_user_view', $data);
+
+    }
+
 
 }
+
+?>

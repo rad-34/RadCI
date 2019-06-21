@@ -32,5 +32,11 @@ class PeopleModel extends CI_Model
         $this->db->where('nic', $id);
         $this->db->delete('people_details');
     }
+
+    public function view_by_id($nic)
+    {
+        $query = $this->db->get_where('people_details',array('nic' => $nic));
+        return $query->row();
+    }
 }
 ?>
