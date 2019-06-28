@@ -12,55 +12,34 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
 
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.19/css/jquery.dataTables.css">
+    <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.js"></script>
+
+
     <!-- <link href="<?php echo base_url(); ?>/assets/css/theme.css" rel="stylesheet" media="all"> -->
 
   </head>
-</html>
-
+  
 <body>
-
 
 <br>
 <h3 align="center">People Details</h3>
 <br>
-<!-- <div class="container">
 
-    <div class="row">
-    <?php echo validation_errors(); ?>
-        <div class="col">
-            <div class="shadow-sm bg-white h-100">
-                <div class="border-bottom p-4">
-                    <div class="text-center">
-                        <img class="mb-3 rounded-pill shadow-sm mt-1" src="https://bootdey.com/img/Content/avatar/avatar7.png" alt="Profile picture">
-                        <div>
-                            <h6 class="mb-2" id="profileName">Name</h6>
-                            <p class="mb-1" id="profileNic">NIC</p>
-                            <p class="mb-1" id="profileAddress">Address</p>
-                            <p class="mb-1" id="profilePhone">Phone No</p>                                
-                        </div>
-                    </div>
-                </div>                
-            </div>           
-        </div>
-    </div>     
-</div> -->
-
-<br>
 <!-- People's data table -->
 <div class="container">
+<h3 align="center"><button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#insertModal">Insert a person</button></h3>
 
     <div class="row">
         <div class="col shadow-sm bg-white h-100">
-            <input type="text" class="form" name="search">
-            <button type="button" class="btn btn-success btn-sm" data-toggle="modal" data-target="">
-            Search
-            </button>
-            <button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#insertModal">
-            Insert a person
-            </button>
-            <br><br>
-            
-            <table class="table table-data2" id="table1">
+        <div class="input-group mb-3">
+        <div class="input-group-prepend">
+            <span class="input-group-text" id="basic-addon1"><i class="material-icons">search</i></span>
+        </div>        
+        <input type="text" class="form-control" name="search" id="search" onkeyup="searchFunction()" placeholder="Search by NIC" style="width: 50%;" >
+        </div>
+            <table class="display" id="table1">
                 <thead>
                 <tr>
                     <th>NIC</th>
@@ -84,6 +63,12 @@
 
                     <td>
                         <p style="margin:0;">
+                            <a href="<?php echo base_url();?>/index.php/peopledetails/view_by_id/<?php echo $row->nic?>">
+                                <button type="button" class="btn btn-outline-secondary btn-sm" id="delete" style="border:0;" >
+                                <i class="material-icons">account_circle</i>
+                                </button>
+                            </a>
+
                             <a href="" data-toggle="modal" data-target="#exampleModal">
                                 <button type="button" class="btn btn-outline-primary btn-sm" id="edit" data-toggle="modal" data-target="#updateModal" style="border:0;">
                                 <i class="material-icons">edit</i>
@@ -221,7 +206,36 @@
     // document.querySelector('#update-form').addEventListner()
 
     // document.getElementById("btnUpdate").onclick
-    
+
+    $(document).ready( function () {
+        $('#table1').DataTable();
+        searching: true;
+    } );
+
+        
+</script>
+
+<script>
+    function searchFunction() {
+    // Declare variables 
+    var input, filter, table, tr, td, i, txtValue;
+    input = document.getElementById("search");
+    filter = input.value.toUpperCase();
+    table = document.getElementById("table1");
+    tr = table.getElementsByTagName("tr");
+
+    for (i = 0; i < tr.length; i++) {
+        td = tr[i].getElementsByTagName("td")[0];
+        if (td) {
+        txtValue = td.textContent || td.innerText;
+        if (txtValue.toUpperCase().indexOf(filter) > -1) {
+            tr[i].style.display = "";
+        } else {
+            tr[i].style.display = "none";
+        }
+        } 
+    }
+    }
 </script>
 
 </body>
