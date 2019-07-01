@@ -40,11 +40,14 @@ class PeopleDetails extends CI_Controller {
     public function people_add()
     {
         $data = array(
-            'nic' => $this->input->post('insert_nic'),
-            'name' => $this->input->post('insert_name'),
+            'NIC' => $this->input->post('insert_nic'),
+            'full_name' => $this->input->post('insert_name'),
             'address' => $this->input->post('insert_address'),
-            'phone_no' => $this->input->post('insert_phone_no'),
-            'status' => $this->input->post('insert_status')            
+            'phone_number' => $this->input->post('insert_phone_no'),
+            'status' => $this->input->post('insert_status'),
+            'job' => $this->input->post('insert_job'),
+            'role' => $this->input->post('insert_role'),
+            'password' => $this->input->post('insert_password')               
         );
 
         // var_dump($data);
@@ -58,14 +61,16 @@ class PeopleDetails extends CI_Controller {
     {
         
         $data = array(
-            'name' => $this->input->post('edit_name'),
+            'full_name' => $this->input->post('edit_name'),
             'address' => $this->input->post('edit_address'),
-            'phone_no' => $this->input->post('edit_phone_no'),
-            'status' => $this->input->post('edit_status')
+            'phone_number' => $this->input->post('edit_phone_no'),
+            'status' => $this->input->post('edit_status'),
+            'job' => $this->input->post('edit_job'),
+            'role' => $this->input->post('edit_role')
         );
 
         // var_dump($data);
-        $this->PeopleModel->people_update(array('nic'=> $this->input->post('edit_nic')),$data);
+        $this->PeopleModel->people_update(array('NIC'=> $this->input->post('edit_nic')),$data);
         echo json_encode(array("status" => TRUE));
         redirect(base_url('index.php/peopledetails'));
 
@@ -78,11 +83,44 @@ class PeopleDetails extends CI_Controller {
         redirect(base_url('index.php/peopledetails'));
     }
 
-    public function view_by_id($nic){
-        $h=$this->PeopleModel->view_by_id($nic);
+    public function view_by_id($id){
+        $h = $this->PeopleModel->view_by_id($id);
+        $f = $this->PeopleModel->get_family_details($id);
         $data['h']=$h;
+        $data['f']=$f;
         // var_dump($data);
         $this->load->view('people_details_user_view', $data);
+
+    }
+
+    public function family_member_add()
+    {
+        $data = array(
+            'name' => $this->input->post('edit_name'),
+            'relationship' => $this->input->post('edit_relationship'),
+            'job' => $this->input->post('edit_job'),
+            'house_holder_id' => $this->input->post('edit_house_holder'),               
+        );
+
+        // var_dump($data);
+        $insert = $this->PeopleModel->family_member_add($data);
+        echo json_encode(array("status" => TRUE));
+        redirect(base_url('index.php/peopledetails'));
+    }
+
+    public function family_member_update()
+    {
+        
+        $data = array(
+            'name' => $this->input->post('edit_name'),
+            'relationship' => $this->input->post('edit_relationship'),
+            'job' => $this->input->post('edit_job'),
+        );
+
+        // var_dump($data);
+        $this->PeopleModel->family_member_update(array('house_holder_id'=> $this->input->post('edit_house_holder')),$data);
+        echo json_encode(array("status" => TRUE));
+        // redirect(base_url('index.php/peopledetails'));
 
     }
 

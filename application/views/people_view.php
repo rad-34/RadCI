@@ -16,9 +16,6 @@
     <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.19/css/jquery.dataTables.css">
     <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.js"></script>
 
-
-    <!-- <link href="<?php echo base_url(); ?>/assets/css/theme.css" rel="stylesheet" media="all"> -->
-
   </head>
   
 <body>
@@ -43,9 +40,11 @@
                 <thead>
                 <tr>
                     <th>NIC</th>
-                    <th>Name</th>
+                    <th>Full Name</th>
                     <th>Address</th>
-                    <th>Phone No</th>
+                    <th>Phone Number</th>
+                    <th>Job</th>
+                    <th>Role</th>
                     <th>Status</th>
                     <th></th>
                 </tr>
@@ -55,15 +54,17 @@
 
                     <?php foreach ($h->result() as $row){ ?>
                 <tr>
-                    <td><?php echo $row->nic;?></td>
-                    <td><?php echo $row->name;?></td>
+                    <td><?php echo $row->NIC;?></td>
+                    <td><?php echo $row->full_name;?></td>
                     <td><?php echo $row->address;?></td>
-                    <td><?php echo $row->phone_no;?></td>
+                    <td><?php echo $row->phone_number;?></td>
+                    <td><?php echo $row->job;?></td>
+                    <td><?php echo $row->role;?></td>
                     <td><?php echo $row->status;?></td>
 
                     <td>
                         <p style="margin:0;">
-                            <a href="<?php echo base_url();?>/index.php/peopledetails/view_by_id/<?php echo $row->nic?>">
+                            <a href="<?php echo base_url();?>/index.php/peopledetails/view_by_id/<?php echo $row->id?>">
                                 <button type="button" class="btn btn-outline-secondary btn-sm" id="delete" style="border:0;" >
                                 <i class="material-icons">account_circle</i>
                                 </button>
@@ -75,7 +76,7 @@
                                 </button>
                             </a>
 
-                            <a href="<?php echo base_url();?>/index.php/peopledetails/people_delete/<?php echo $row->nic?>">
+                            <a href="<?php echo base_url();?>/index.php/peopledetails/people_delete/<?php echo $row->NIC?>">
                                 <button type="button" class="btn btn-outline-danger btn-sm" id="delete" style="border:0;" onclick="return confirm('Are you sure you want to delete?')">
                                 <i class="material-icons">delete_forever</i>
                                 </button>
@@ -108,23 +109,44 @@
                 </div>
                 <br>
                 <div class="form-label">
-                    <label for="nic">Name</label>
-                    <input type="text" class="form-control" name="insert_name" id="insert_name" placeholder="Enter Name">
+                    <label for="name">Full Name</label>
+                    <input type="text" class="form-control" name="insert_name" id="insert_name" placeholder="Enter Full Name">
                 </div>
                 <br>
                 <div class="form-label">
-                    <label for="nic">Address</label>
+                    <label for="address">Address</label>
                     <input type="text" class="form-control" name="insert_address" id="insert_address" placeholder="Enter Address">
                 </div>
                 <br>
                 <div class="form-label">
-                    <label for="nic">Phone No</label>
+                    <label for="phone">Phone Number</label>
                     <input type="text" class="form-control" name="insert_phone_no"  id="insert_phone_no" placeholder="Enter Phone No">
                 </div>
                 <br>
                 <div class="form-label">
-                    <label for="nic">Status</label>
-                    <input type="text" class="form-control" name="insert_status"  id="insert_status" placeholder="Enter the Status">
+                    <label for="job">Job</label>
+                    <input type="text" class="form-control" name="insert_job"  id="insert_job" placeholder="Enter the Job">
+                </div>
+                <br>
+                <div class="form-label">
+                    <label for="role">Role</label>
+                    <select class="form-control" name="insert_role" id="insert_role">
+                        <option value="M">M - Member</option>
+                        <option value="A">A - Admin</option>
+                    </select>
+                </div>
+                <br>
+                <div class="form-label">
+                    <label for="status">Status</label>
+                    <select class="form-control" name="insert_status" id="insert_status">
+                        <option value="1">1</option>
+                        <option value="0">0</option>
+                    </select>
+                </div>
+                <br>
+                <div class="form-label">
+                    <label for="password">Password</label>
+                    <input type="text" class="form-control" name="insert_password"  id="insert_password" placeholder="Enter the Password">
                 </div>
                 <br>
                 <button type="submit" id="btnInsert"  class="btn btn-info" name="btnInsert">Insert</button>
@@ -154,7 +176,7 @@
                 </div>
                 <br>
                 <div class="form-label">
-                    <label for="nic">Name</label>
+                    <label for="nic">Full Name</label>
                     <input type="text" class="form-control" name="edit_name" id="edit_name" placeholder="Enter Name">
                 </div>
                 <br>
@@ -164,15 +186,33 @@
                 </div>
                 <br>
                 <div class="form-label">
-                    <label for="nic">Phone No</label>
+                    <label for="nic">Phone Number</label>
                     <input type="text" class="form-control" name="edit_phone_no"  id="edit_phone_no" placeholder="Enter Phone No">
                 </div>
                 <br>
                 <div class="form-label">
-                    <label for="nic">Status</label>
-                    <input type="text" class="form-control" name="edit_status"  id="edit_status" placeholder="Enter the Status">
+                    <label for="job">Job</label>
+                    <input type="text" class="form-control" name="edit_job"  id="edit_job" placeholder="Enter the Job">
                 </div>
-                <br>                
+                <br>
+                <div class="form-label">
+                    <label for="role">Role</label>
+                    <!-- <input type="text" class="form-control" name="edit_role"  id="edit_role" placeholder="Enter the Role"> -->
+                    <select class="form-control" name="edit_role" id="edit_role">
+                        <option value="M">M - Member</option>
+                        <option value="A">A - Admin</option>
+                    </select>
+                </div>
+                <br>
+                <div class="form-label">
+                    <label for="status">Status</label>
+                    <!-- <input type="text" class="form-control" name="edit_status"  id="edit_status" placeholder="Enter the Status"> -->
+                    <select class="form-control" name="edit_status" id="edit_status">
+                        <option value="1">1</option>
+                        <option value="0">0</option>
+                    </select>
+                </div>
+                <br>
                 <button type="submit" id="btnUpdate"  class="btn btn-info" name="btnUpdate">Update</button>
                 <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
             </form>        
@@ -184,6 +224,7 @@
 <script>
 
     document.getElementById("insert_status").defaultValue = "1";
+    document.getElementById("insert_role").defaultValue = "M";
 
     var table = document.getElementById('table1');
 
@@ -199,7 +240,9 @@
             // document.getElementById("profileAddress").innerText = this.cells[2].innerHTML;
             document.getElementById("edit_phone_no").value = this.cells[3].innerHTML;
             // document.getElementById("profilePhone").innerText = this.cells[3].innerHTML;
-            document.getElementById("edit_status").value = this.cells[4].innerHTML;
+            document.getElementById("edit_job").value = this.cells[4].innerHTML;
+            document.getElementById("edit_role").value = this.cells[5].innerHTML;
+            document.getElementById("edit_status").value = this.cells[6].innerHTML;
         };
     }
 

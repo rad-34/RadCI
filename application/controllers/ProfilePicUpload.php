@@ -13,7 +13,7 @@ class ProfilePicUpload extends CI_Controller {
         
     }
 
-    public function do_upload($nic)
+    public function do_upload($nic,$id)
     {
         $config['upload_path'] = './uploads/';
         $config['allowed_types'] = 'gif|jpg|png';
@@ -28,12 +28,12 @@ class ProfilePicUpload extends CI_Controller {
         if ( ! $this->upload->do_upload('userfile'))
         {
             $error = array('error' => $this->upload->display_errors());
-            redirect(base_url('index.php/peopledetails/view_by_id/'.$nic));
+            redirect(base_url('index.php/peopledetails/view_by_id/'.$id));
         }
         else
         {
             $data = array('upload_data' => $this->upload->data());
-            redirect(base_url('index.php/peopledetails/view_by_id/'.$nic));
+            redirect(base_url('index.php/peopledetails/view_by_id/'.$id));
         }
     }
 }
