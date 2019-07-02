@@ -28,7 +28,13 @@ class PeopleDetails extends CI_Controller {
 
     }
 
-
+    public function pdf()
+	{
+		$this->load->database();
+		$data['h']=$this->PeopleModel->people_select(); 		
+		$this->load->library('Pdf');
+		$this->load->view('pdf',$data);
+	}
     public function index()
     {       
         $this->load->database();
