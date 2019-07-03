@@ -51,17 +51,22 @@
                         
                             ?>   <br>         
 
-                           <div class="card" style="width: 50rem; ">
+                           <div class="card mb-4" style="width: 50rem; ">
+                                <img style="width: 45rem; height: 18rem" class="card-img-top" src="<?php echo base_url('/assets1/img/postpic.jpg')?>" alt="Card image cap">
                                 <div class="card-body">
+
                                   <h5 class="card-title"> <?php echo $row->title;?></h5>
-                                  <img style="width: 45rem; height: 18rem" class="card-img-top" src="<?php echo base_url('/assets1/img/postpic.jpg')?>" alt="Card image cap">
                                   <p class="card-text"><?php echo $row->post;?></p>
                                 </div>
                                 <ul class="list-group list-group-flush">
-                                  <li class="list-group-item">Date   :   <?php echo $row->date;?></li>
+                                  <!--<li class="list-group-item">Date   :   <?php echo $row->date;?></li>-->
                                   <li class="list-group-item">Sent By   :   <?php echo $row->sender;?></li>
                                   <!--<li class="list-group-item">Vestibulum at eros</li>-->
                                 </ul>
+                                <div class="card-footer text-muted">
+                                                <li class="list-group-item">Date   :   <?php echo $row->date;?></li>
+
+                          </div>
                                 <div class="card-body">
                                   <a href= "<?php echo base_url();?>index.php/Main_Controller/deletedata/<?php echo $row->id?> " class="delete"  ><button type="submit" class="btn btn-danger" value="delete" name=delete>Delete</button></a>            
                                   <a href= "<?php echo base_url();?>index.php/Main_Controller/edit/<?php echo $row->id?> " class="update"  ><button type="submit" class="btn btn-warning" value="update" name=update>Edit</button></a>              
