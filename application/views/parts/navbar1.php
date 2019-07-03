@@ -9,14 +9,14 @@
 <link href="<?php echo base_url(); ?>assets/fontawesome/css/solid.css" rel="stylesheet">
 
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-  <a class="navbar-brand" href="<?php echo base_url('index.php/home'); ?>">Meegahajanadura Gramaniladhari Devision</a>
+  <a class="navbar-brand" href="<?php echo base_url('index.php/Main_Controller/home'); ?>">Meegahajanadura Gramaniladhari Devision</a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
 
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
-        <li class="nav-item"><a class="nav-link" href="<?php echo base_url('index.php/home'); ?>">Home</a></li>      
+        <li class="nav-item"><a class="nav-link" href="<?php echo base_url('index.php/Main_Controller'); ?>">Home</a></li>      
         <li class="nav-item"><a class="nav-link" href="<?php echo base_url('index.php/Gallery/loadImage'); ?>">Gallery</a></li>
         <li class="nav-item"><a class="nav-link" href="<?php echo base_url('index.php/peopledetails'); ?>">People Details</a></li>      
     </ul class="navbar-nav mr-auto">

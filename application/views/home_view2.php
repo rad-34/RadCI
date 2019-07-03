@@ -26,58 +26,37 @@
 
 
     <!-- Page Content -->
-  <div class="container">
+    <div class="container"> 
+              <div class="card-column" >                
+                    <?php
+                    echo "\n";
+                          foreach($display->result() as $row){?>    
+<br>
+                           <div class="card" style="width: 50rem; ">
+                                <div class="card-body">
+                                  <h5 class="card-title"> <?php echo $row->title;?></h5>
+                                  <img style="width: 45rem; height: 18rem" class="card-img-top" src="<?php echo base_url('/assets/img/postpic.jpg')?>" alt="Card image cap">
+                                  <p class="card-text"><?php echo $row->post;?></p>
+                                </div>
+                                <ul class="list-group list-group-flush">
+                                  <li class="list-group-item">Date   :   <?php echo $row->date;?></li>
+                                  <li class="list-group-item">Sent By   :   <?php echo $row->sender;?></li>
+                                  <!--<li class="list-group-item">Vestibulum at eros</li>-->
+                                </ul>
+                                <div class="card-body">
+                                  <!--<a href="#" class="btn btn-primary">Like</a>
+                                  <a href="#" class="btn btn-primary">Comment</a>-->
+                                </div>
+                              </div>
+                             
+                             <?php }  ?>
 
-<div class="row">
+                               </div>
+                    
+                    </div>
 
-  <!-- Blog Entries Column -->
-  <div class="col-md-8">
-
-    <h1 class="my-4">Page Heading
-      <small>Secondary Text</small>
-    </h1>
-
-    <!-- Blog Post -->
-    <div class="card mb-4">
-      <img class="card-img-top" src="http://placehold.it/750x300" alt="Card image cap">
-      <div class="card-body">
-        <h2 class="card-title">Post Title</h2>
-        <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Reiciendis aliquid atque, nulla? Quos cum ex quis soluta, a laboriosam. Dicta expedita corporis animi vero voluptate voluptatibus possimus, veniam magni quis!</p>
-        <a href="#" class="btn btn-primary">Read More &rarr;</a>
-      </div>
-      <div class="card-footer text-muted">
-        Posted on January 1, 2017 by
-        <a href="#">Start Bootstrap</a>
-      </div>
-    </div>
-
-    <!-- Blog Post -->
-    <div class="card mb-4">
-      <img class="card-img-top" src="http://placehold.it/750x300" alt="Card image cap">
-      <div class="card-body">
-        <h2 class="card-title">Post Title</h2>
-        <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Reiciendis aliquid atque, nulla? Quos cum ex quis soluta, a laboriosam. Dicta expedita corporis animi vero voluptate voluptatibus possimus, veniam magni quis!</p>
-        <a href="#" class="btn btn-primary">Read More &rarr;</a>
-      </div>
-      <div class="card-footer text-muted">
-        Posted on January 1, 2017 by
-        <a href="#">Start Bootstrap</a>
-      </div>
-    </div>
-
-    <!-- Blog Post -->
-    <div class="card mb-4">
-      <img class="card-img-top" src="http://placehold.it/750x300" alt="Card image cap">
-      <div class="card-body">
-        <h2 class="card-title">Post Title</h2>
-        <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Reiciendis aliquid atque, nulla? Quos cum ex quis soluta, a laboriosam. Dicta expedita corporis animi vero voluptate voluptatibus possimus, veniam magni quis!</p>
-        <a href="#" class="btn btn-primary">Read More &rarr;</a>
-      </div>
-      <div class="card-footer text-muted">
-        Posted on January 1, 2017 by
-        <a href="#">Start Bootstrap</a>
-      </div>
-    </div>
+                          </div>             
+<br><br>
 
     <!-- Pagination -->
     <ul class="pagination justify-content-center mb-4">
@@ -169,7 +148,37 @@
       });
 
     </script>
+<div class="container"> 
+              <div class="card-column" >                
+                    <?php
+                    echo "\n";
+                          foreach($display->result() as $row){?>    
+<br>
+                           <div class="card" style="width: 50rem; ">
+                                <div class="card-body">
+                                  <h5 class="card-title"> <?php echo $row->title;?></h5>
+                                  <img style="width: 45rem; height: 18rem" class="card-img-top" src="<?php echo base_url('/assets/img/postpic.jpg')?>" alt="Card image cap">
+                                  <p class="card-text"><?php echo $row->post;?></p>
+                                </div>
+                                <ul class="list-group list-group-flush">
+                                  <li class="list-group-item">Date   :   <?php echo $row->date;?></li>
+                                  <li class="list-group-item">Sent By   :   <?php echo $row->sender;?></li>
+                                  <!--<li class="list-group-item">Vestibulum at eros</li>-->
+                                </ul>
+                                <div class="card-body">
+                                  <!--<a href="#" class="btn btn-primary">Like</a>
+                                  <a href="#" class="btn btn-primary">Comment</a>-->
+                                </div>
+                              </div>
+                             
+                             <?php }  ?>
 
+                               </div>
+                    
+                    </div>
+
+                          </div>             
+<br><br>
 
 </body>
 
