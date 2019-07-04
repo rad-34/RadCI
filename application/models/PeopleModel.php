@@ -3,13 +3,11 @@ class PeopleModel extends CI_Model
 {
     function __construct()
     {
-
         parent::__construct();
     }
 
     public function people_select()
     {
-
         $query = $this->db->get('house-holder');
         return $query;
     }
@@ -54,6 +52,12 @@ class PeopleModel extends CI_Model
     {
         $this->db->update('family-details', $data, $where);
         return $this->db->affected_rows();
+    }
+
+    public function family_member_delete($id)
+    {
+        $this->db->where('id', $id);
+        $this->db->delete('family-details');
     }
     
 }

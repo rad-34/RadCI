@@ -51,6 +51,8 @@
             </div>           
         </div>
 
+       
+
         <div class="col shadow-sm bg-white h-100">
             <div>
             <br><br>
@@ -77,6 +79,7 @@
                     <td><?php echo $row->relationship;?></td>
                     <td><?php echo $row->job;?></td>
                     <td><?php echo $row->house_holder_id;?></td>
+                    <td><?php echo $row->id;?></td>
                     
                     <td>
                         <p style="margin:0;">
@@ -86,7 +89,7 @@
                                 </button>
                             </a>
 
-                            <a href="<?php echo base_url();?>/index.php/peopledetails/people_delete/<?php echo $row->id?>">
+                            <a href="<?php echo base_url();?>/index.php/peopledetails/family_member_delete/<?php echo $row->id?>">
                                 <button type="button" class="btn btn-outline-danger btn-sm" id="delete" style="border:0;" onclick="return confirm('Are you sure you want to delete?')">
                                 <i class="material-icons">delete_forever</i>
                                 </button>
@@ -114,8 +117,9 @@
             </button>
         </div>
         <div class="modal-body">
-            <form action="<?php echo base_url();?>index.php/peopledetails/family_member_add" method="post" id="insert-form">
+            <form action="<?php echo base_url();?>/index.php/peopledetails/family_member_add" method="post" id="insert-form">
                 
+
                 <div class="form-label">
                     <label for="name">Full Name</label>
                     <input type="text" class="form-control" name="insert_name" id="insert_name" placeholder="Enter Full Name">
@@ -133,11 +137,9 @@
                 </div>
                 <br>
                 <div class="form-label">
-                    <label for="job">House Holder ID</label>
-                    <input type="text" class="form-control" name="insert_house_holder"  id="insert_house_holder" placeholder="Enter the HouseHolder ID">
+                    <input type="hidden" value="<?php echo $h->id;?>" class="form-control" name="insert_house_holder"  id="insert_house_holder" placeholder="Enter the HouseHolder ID">
                 </div>
-                <br>
-                
+                <br>               
                 
                 <button type="submit" id="btnInsert"  class="btn btn-info" name="btnInsert">Insert</button>
                 <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>                
@@ -159,9 +161,9 @@
         </div>
         <div class="modal-body">
         
-            <form action="<?php echo base_url()."index.php/peopledetails/family_member_update/".$row->id;?>" method="post" id="insert-form">
+            <form action="<?php echo base_url();?>/index.php/peopledetails/family_member_update" method="post" id="insert-form">
                         
-                
+                <input class="form-control" type="hidden" name="edit_id" id="edit_id">
                 <div class="form-label">
                     <label for="nic">Full Name</label>
                     <input type="text" class="form-control" name="edit_name" id="edit_name" placeholder="Enter Name">
@@ -179,11 +181,9 @@
                 </div>
                 <br>
                 <div class="form-label">
-                    <label for="job">House Holder ID</label>
-                    <input type="text" class="form-control" name="edit_house_holder"  id="edit_house_holder" placeholder="Enter the Job">
+                    <input type="hidden" class="form-control" name="edit_house_holder"  id="edit_house_holder" placeholder="Enter the Job">
                 </div>
-                <br>
-                
+                <br>                
                 <button type="submit" id="btnUpdate"  class="btn btn-info" name="btnUpdate">Update</button>
                 <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
             </form>        
@@ -194,7 +194,7 @@
 
 
 <script>
-    var table = document.getElementById('table1');
+    var table = document.getElementById('table1');  
 
     for(var i = 1; i < table.rows.length; i++)
     {
@@ -204,7 +204,7 @@
             document.getElementById("edit_relationship").value = this.cells[1].innerHTML;
             document.getElementById("edit_job").value = this.cells[2].innerHTML;
             document.getElementById("edit_house_holder").value = this.cells[3].innerHTML;
-            document.getElementById("insert_house_holder").value = this.cells[3].innerHTML;
+            document.getElementById("edit_id").value = this.cells[4].innerHTML;
             
         };
     }

@@ -8,27 +8,15 @@ class PeopleDetails extends CI_Controller {
         parent::__construct();
         $this->load->model('PeopleModel');
 
-        if (isset($_POST['btnInsert'])) {
-            
-            //Insert to data to database
-            $this->people_add();    
-            
-        } else if (isset($_POST['btnUpdate'])) {
-    
-            //Update a record in a database
-            $this->people_update();
-            
-        }else if(isset($_POST['btnDelete'])){
-            $nic = $_POST['nic'];
-                
-            //Delete a record in a database
-            $this->people_delete($nic);
-        
-        }
-
     }
 
-
+    public function pdf()
+	{
+		$this->load->database();
+		$data['h']=$this->PeopleModel->people_select(); 		
+		$this->load->library('Pdf');
+		$this->load->view('pdf',$data);
+	}
     public function index()
     {       
         $this->load->database();
@@ -95,33 +83,43 @@ class PeopleDetails extends CI_Controller {
 
     public function family_member_add()
     {
+        $hid = $this->input->post('insert_house_holder');
         $data = array(
-            'name' => $this->input->post('edit_name'),
-            'relationship' => $this->input->post('edit_relationship'),
-            'job' => $this->input->post('edit_job'),
-            'house_holder_id' => $this->input->post('edit_house_holder'),               
+            'name' => $this->input->post('insert_name'),
+            'relationship' => $this->input->post('insert_relationship'),
+            'job' => $this->input->post('insert_job'),
+            'house_holder_id' => $this->input->post('insert_house_holder'),               
         );
 
         // var_dump($data);
         $insert = $this->PeopleModel->family_member_add($data);
         echo json_encode(array("status" => TRUE));
-        redirect(base_url('index.php/peopledetails'));
+        redirect(base_url('index.php/peopledetails/view_by_id/'.$hid));
     }
 
     public function family_member_update()
-    {
-        
+    {  
+        $hid = $this->input->post('edit_house_holder');
         $data = array(
             'name' => $this->input->post('edit_name'),
-            'relationship' => $this->input->post('edit_relationship'),
             'job' => $this->input->post('edit_job'),
+            'relationship' => $this->input->post('edit_relationship'),
+            'house_holder_id' => $this->input->post('edit_house_holder')            
         );
 
         // var_dump($data);
-        $this->PeopleModel->family_member_update(array('house_holder_id'=> $this->input->post('edit_house_holder')),$data);
-        echo json_encode(array("status" => TRUE));
-        // redirect(base_url('index.php/peopledetails'));
+        $this->PeopleModel->family_member_update(array('id'=> $this->input->post('edit_id')),$data);
+        // echo json_encode(array("status" => TRUE));
+        // $url = base_url().'index.php/peopledetails/view_by_id/'.$hid;
+        redirect(base_url('index.php/peopledetails/view_by_id/'.$hid));
 
+    }
+
+    public function family_member_delete($id)
+    {
+        $this->PeopleModel->family_member_delete($id);
+        echo json_encode(array("status" => TRUE));
+        redirect(base_url('index.php/peopledetails'));
     }
 
 

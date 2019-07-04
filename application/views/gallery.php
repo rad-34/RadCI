@@ -1,31 +1,15 @@
-<?php include 'parts/navbar1.php';?>
-
+<?php include 'parts/navbar.php';?>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+	
 <!DOCTYPE html>
 <html>
 <head>
 	<title>Gallery</title>
+
 </head>
 <body>
 		<div class="container-fluid">
-		<div class="container" >
-			<h1 style="text-align: center;font-size: 50px;font-weight: bold;">Gallery</h1>
-			<div class="row" style="text-align: center;margin-top: 20px;">
-				<div class="col-md-2"></div>
-				<div class="col-md-8">
-						<div class="row" >
-								
-							<div class="col-md-4"><a style="font-size: 20px;font-weight: bold;" href="<?php echo base_url('index.php/Gallery/openAddImage'); ?>" type="button" class="btn btn-success"><i class="fas fa-plus-circle" style="padding: 10px;"></i>Add Images</a></div>	
-							<div class="col-md-4"><a href="<?php echo base_url('index.php/Gallery/openUpdateImage'); ?>" style="font-size: 20px;font-weight: bold;" type="button" class="btn btn-info"><i style="padding: 10px;" class="far fa-edit"></i>Update Images</a></div>
-							<div class="col-md-4"><a href="<?php echo base_url('index.php/Gallery/openDeleteImage'); ?>" style="font-size: 20px;font-weight: bold;" type="button" class="btn btn-danger"><i style="padding: 10px;" class="far fa-trash-alt"></i>Delete Images</a></div>
-
-						</div>
-						<div class="col-md-2"></div>
-				
-			</div>
-
-		</div>
-
-	</div>
+		<h1 style="text-align: center;font-size: 50px;font-weight: bold;">Gallery</h1>
 	<div id="myCarousel" class="carousel slide" data-ride="carousel" style="margin-top: 20px;"> 
 			  <ol class="carousel-indicators">
 			 <?php 
@@ -69,6 +53,25 @@
 			    <span class="sr-only">Next</span><!-- This is the next button -->
 			  </a>	
 </div>
+<div class="container" >
+			
+			<div class="row" style="text-align: center;margin-top: 20px;">
+				<div class="col-md-2"></div>
+				<div class="col-md-8">
+						<div class="row" >
+								
+							<div class="col-md-4"><a style="font-size: 20px;font-weight: bold;" href="<?php echo base_url('index.php/Gallery/openAddImage'); ?>" type="button" class="btn btn-success"><i class="fas fa-plus-circle" style="padding: 10px;"></i>Add Images</a></div>	
+							<div class="col-md-4"><a href="<?php echo base_url('index.php/Gallery/openUpdateImage'); ?>" style="font-size: 20px;font-weight: bold;" type="button" class="btn btn-info"><i style="padding: 10px;" class="far fa-edit"></i>Update Images</a></div>
+							<div class="col-md-4"><a href="<?php echo base_url('index.php/Gallery/openDeleteImage'); ?>" style="font-size: 20px;font-weight: bold;" type="button" class="btn btn-danger"><i style="padding: 10px;" class="far fa-trash-alt"></i>Delete Images</a></div>
+
+						</div>
+						<div class="col-md-2"></div>
+				
+			</div>
+
+		</div>
+
+	</div>
 </div>
 
 </body>

@@ -26,7 +26,17 @@
 
 <!-- People's data table -->
 <div class="container">
-<h3 align="center"><button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#insertModal">Insert a person</button></h3>
+<div class="row">
+    <div class="col-md-6">
+    <h3 align="center"><button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#insertModal">Insert a person</button></h3>
+    </div>
+    <div class="col-md-6">
+    
+        <a href="<?php echo base_url('index.php/PeopleDetails/pdf');?>" class="btn btn-success btn-sm">Print the Details</a>
+    </div>
+</div>
+
+
 
     <div class="row">
         <div class="col shadow-sm bg-white h-100">
@@ -52,7 +62,7 @@
                 <tbody>
                 <tr class="tr-shadow">
 
-                    <?php foreach ($h->result() as $row){ ?>
+                    <?php foreach ($h->result() as $row){?>
                 <tr>
                     <td><?php echo $row->NIC;?></td>
                     <td><?php echo $row->full_name;?></td>

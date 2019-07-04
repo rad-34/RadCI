@@ -2,7 +2,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>Home</title>
+    <title>Home11</title>
     <meta charset="utf-8"> 
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -14,18 +14,66 @@
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <!-- <link href="<?php echo base_url(); ?>/assets/css/theme.css" rel="stylesheet" media="all"> -->
 
-    <link href='<?php echo base_url(); ?>/assets/calender/packages/core/main.css' rel='stylesheet' />
-    <link href='<?php echo base_url(); ?>/assets/calender/packages/daygrid/main.css' rel='stylesheet' />
+    <!-- Plugin CSS -->
+    <link href="<?php echo base_url(); ?>/assets/theme/vendor/magnific-popup/magnific-popup.css" rel="stylesheet">
 
-    <script src='<?php echo base_url(); ?>/assets/calender/packages/core/main.js'></script>
-    <script src='<?php echo base_url(); ?>/assets/calender/packages/daygrid/main.js'></script>
+    <!-- Theme CSS - Includes Bootstrap -->
+    <link href="<?php echo base_url(); ?>/assets/theme/css/creative.min.css" rel="stylesheet">
 
   </head>
 
 <body>
 
-    <!-- Page Content -->
-  <div class="container">
+<!-- Navigation -->
+<nav class="navbar navbar-expand-lg navbar-light fixed-top py-3" id="mainNav">
+    <div class="container">
+      <!-- <a class="navbar-brand js-scroll-trigger" href="#page-top"></a> -->
+      <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarResponsive">
+        <ul class="navbar-nav ml-auto my-2 my-lg-0">
+          <li class="nav-item">
+            <a class="nav-link js-scroll-trigger" href="<?php echo base_url('index.php/Gallery/loadImage'); ?>">Gallery</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link js-scroll-trigger" href="#post">Posts</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link js-scroll-trigger" href="#schedule">Schedule</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link js-scroll-trigger" href="#contact">Contact</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link js-scroll-trigger" href="<?php echo base_url('index.php/peopledetails'); ?>">People Details</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Masthead -->
+  <header class="masthead">
+    <div class="container h-100">
+      <div class="row h-100 align-items-center justify-content-center text-center">
+        <div class="col-lg-10 align-self-end">
+          <h2 class="text-uppercase text-white ">Welcome to</h2>
+          
+          <h1 class=" text-white font-weight-bold">Meegahajanadura Gramaniladhari Division</h1>
+          <hr class="divider my-4">
+        </div>
+        <div class="col-lg-8 align-self-baseline">
+          <p class="text-white-75 font-weight-light mb-5">Start Bootstrap can help you build better websites using the Bootstrap framework! Just download a theme and start customizing, no strings attached!</p>
+          <a class="btn btn-primary btn-xl js-scroll-trigger" href="#about">View Updates</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+
+<!-- Page Content -->
+<div class="container">
 
 <div class="row">
 
@@ -89,67 +137,7 @@
     </ul>
 
   </div>
-
-  <!-- Sidebar Widgets Column -->
-  <div class="col-md-4">
-
-    <!-- Search Widget -->
-    <div class="card my-4">
-      <h5 class="card-header">Search</h5>
-      <div class="card-body">
-        <div class="input-group">
-          <input type="text" class="form-control" placeholder="Search for...">
-          <span class="input-group-btn">
-            <button class="btn btn-secondary" type="button">Go!</button>
-          </span>
-        </div>
-      </div>
-    </div>
-
-    <!-- Categories Widget -->
-    <div class="card my-4">
-      <h5 class="card-header">Categories</h5>
-      <div class="card-body">
-        <div class="row">
-          <div class="col-lg-6">
-            <ul class="list-unstyled mb-0">
-              <li>
-                <a href="#">Web Design</a>
-              </li>
-              <li>
-                <a href="#">HTML</a>
-              </li>
-              <li>
-                <a href="#">Freebies</a>
-              </li>
-            </ul>
-          </div>
-          <div class="col-lg-6">
-            <ul class="list-unstyled mb-0">
-              <li>
-                <a href="#">JavaScript</a>
-              </li>
-              <li>
-                <a href="#">CSS</a>
-              </li>
-              <li>
-                <a href="#">Tutorials</a>
-              </li>
-            </ul>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <!-- Side Widget -->
-    <div id="calendar">
-      
-    </div>
-
-  </div>
-
 </div>
-<!-- /.row -->
 
 </div>
 
@@ -157,17 +145,16 @@
 
 <script>
 
-      document.addEventListener('DOMContentLoaded', function() {
-        var calendarEl = document.getElementById('calendar');
+  <!-- Plugin JavaScript -->
+  <script src="<?php echo base_url(); ?>assets/theme/vendor/jquery-easing/jquery.easing.min.js"></script>
+  <script src="<?php echo base_url(); ?>assets/theme/vendor/magnific-popup/jquery.magnific-popup.min.js"></script>
 
-        var calendar = new FullCalendar.Calendar(calendarEl, {
-          plugins: [ 'dayGrid' ]
-        });
+  <!-- Custom scripts for this template -->
+  <script src="<?php echo base_url(); ?>assets/theme/js/creative.min.js"></script>
 
-        calendar.render();
-      });
+</script>
 
-    </script>
+
 
 
 </body>

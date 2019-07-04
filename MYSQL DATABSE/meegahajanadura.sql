@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jul 01, 2019 at 06:00 PM
+-- Generation Time: Jul 04, 2019 at 11:44 PM
 -- Server version: 10.1.32-MariaDB
 -- PHP Version: 7.2.5
 
@@ -19,7 +19,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `rad`
+-- Database: `meegahajanadura`
 --
 
 -- --------------------------------------------------------
@@ -42,7 +42,8 @@ CREATE TABLE `family-details` (
 
 INSERT INTO `family-details` (`id`, `name`, `job`, `relationship`, `house_holder_id`) VALUES
 (1, 'Saman Perera', 'No', 'Farther', 3),
-(2, 'Manel Perera', 'No', 'Mother', 3);
+(2, 'Manel Perera', 'No', 'Mother', 3),
+(4, 'Kamani Perera', 'Worker', 'Sister', 3);
 
 -- --------------------------------------------------------
 
@@ -131,6 +132,14 @@ CREATE TABLE `post` (
   `sender` varchar(45) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
+--
+-- Dumping data for table `post`
+--
+
+INSERT INTO `post` (`id`, `title`, `post`, `date`, `sender`) VALUES
+(1, 'New Post', 'New post desc', '2019-07-10', 'abcd'),
+(2, 'post 2', 'post 2', '2019-07-03', 'abcd');
+
 -- --------------------------------------------------------
 
 --
@@ -138,12 +147,26 @@ CREATE TABLE `post` (
 --
 
 CREATE TABLE `schedule` (
-  `SID` int(11) NOT NULL,
-  `Date` date DEFAULT NULL,
-  `Time` time DEFAULT NULL,
-  `Place` varchar(45) DEFAULT NULL,
-  `Description` varchar(255) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+  `SID` int(5) NOT NULL,
+  `Date` date NOT NULL,
+  `Time` time NOT NULL,
+  `Place` varchar(50) NOT NULL,
+  `Description` varchar(250) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `schedule`
+--
+
+INSERT INTO `schedule` (`SID`, `Date`, `Time`, `Place`, `Description`) VALUES
+(1023, '2019-06-10', '09:00:00', 'Office', 'For Gemi Diriya'),
+(1025, '2019-06-15', '10:00:00', 'Office', 'For People Registrations'),
+(1027, '2019-06-25', '08:00:00', 'District Secretariat', 'To Submit documents'),
+(1028, '2019-06-30', '09:00:00', 'Temple', 'Document Collection'),
+(1029, '2019-07-02', '08:00:00', 'Office', 'For Sanasa'),
+(1030, '2019-07-04', '15:00:00', 'Office', 'For Gemi Diriya'),
+(1031, '2019-07-06', '14:00:00', 'Office', 'General Inquiry'),
+(1032, '2019-07-20', '10:00:00', 'abc', 'abc');
 
 --
 -- Indexes for dumped tables
@@ -184,7 +207,7 @@ ALTER TABLE `post`
 -- Indexes for table `schedule`
 --
 ALTER TABLE `schedule`
-  ADD PRIMARY KEY (`SID`);
+  ADD PRIMARY KEY (`SID`) USING BTREE;
 
 --
 -- AUTO_INCREMENT for dumped tables
@@ -194,7 +217,7 @@ ALTER TABLE `schedule`
 -- AUTO_INCREMENT for table `family-details`
 --
 ALTER TABLE `family-details`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `gallery`
@@ -206,7 +229,7 @@ ALTER TABLE `gallery`
 -- AUTO_INCREMENT for table `house-holder`
 --
 ALTER TABLE `house-holder`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `people_details`
@@ -218,13 +241,13 @@ ALTER TABLE `people_details`
 -- AUTO_INCREMENT for table `post`
 --
 ALTER TABLE `post`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `schedule`
 --
 ALTER TABLE `schedule`
-  MODIFY `SID` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `SID` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1033;
 
 --
 -- Constraints for dumped tables
