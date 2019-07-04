@@ -1,9 +1,11 @@
-<?php include 'parts/navbar1.php';?>
-
+<?php include 'parts/navbar.php';?>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+	
 <!DOCTYPE html>
 <html>
 <head>
 	<title>Gallery</title>
+
 </head>
 <body>
 		<div class="container-fluid">

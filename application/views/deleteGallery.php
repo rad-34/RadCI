@@ -1,4 +1,4 @@
-<?php include 'parts/navbar1.php';?>
+<?php include 'parts/navbar.php';?>
 <!DOCTYPE html>
 <html>
 <head>
