@@ -18,7 +18,8 @@
     <ul class="navbar-nav mr-auto">
         <li class="nav-item"><a class="nav-link" href="<?php echo base_url('index.php/Main_Controller'); ?>">Home</a></li>      
         <li class="nav-item"><a class="nav-link" href="<?php echo base_url('index.php/Gallery/loadImage'); ?>">Gallery</a></li>
-        <li class="nav-item"><a class="nav-link" href="<?php echo base_url('index.php/peopledetails'); ?>">People Details</a></li>      
+        <li class="nav-item"><a class="nav-link" href="<?php echo base_url('index.php/peopledetails'); ?>">People Details</a></li>
+        <li class="nav-item"><a class="nav-link" href="<?php echo base_url('index.php/Public_CI'); ?>">Schedule</a></li>      
     </ul class="navbar-nav mr-auto">
     <ul class="nav navbar-nav navbar-right">
       <li class="nav-item"><a class="nav-link" href="#"><span class="fas fa-user" aria-hidden="true"></span> User</a></li>
