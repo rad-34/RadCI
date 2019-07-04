@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.8.0.1
+-- version 4.7.9
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jul 01, 2019 at 06:00 PM
--- Server version: 10.1.32-MariaDB
--- PHP Version: 7.2.5
+-- Generation Time: Jul 04, 2019 at 05:28 PM
+-- Server version: 10.1.31-MariaDB
+-- PHP Version: 7.2.3
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -19,7 +19,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `rad`
+-- Database: `rad1`
 --
 
 -- --------------------------------------------------------
@@ -138,12 +138,26 @@ CREATE TABLE `post` (
 --
 
 CREATE TABLE `schedule` (
-  `SID` int(11) NOT NULL,
-  `Date` date DEFAULT NULL,
-  `Time` time DEFAULT NULL,
-  `Place` varchar(45) DEFAULT NULL,
-  `Description` varchar(255) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+  `SID` int(5) NOT NULL,
+  `Date` date NOT NULL,
+  `Time` time NOT NULL,
+  `Place` varchar(50) NOT NULL,
+  `Description` varchar(250) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `schedule`
+--
+
+INSERT INTO `schedule` (`SID`, `Date`, `Time`, `Place`, `Description`) VALUES
+(1023, '2019-06-10', '09:00:00', 'Office', 'For Gemi Diriya'),
+(1025, '2019-06-15', '10:00:00', 'Office', 'For People Registrations'),
+(1027, '2019-06-25', '08:00:00', 'District Secretariat', 'To Submit documents'),
+(1028, '2019-06-30', '09:00:00', 'Temple', 'Document Collection'),
+(1029, '2019-07-02', '08:00:00', 'Office', 'For Sanasa'),
+(1030, '2019-07-04', '15:00:00', 'Office', 'For Gemi Diriya'),
+(1031, '2019-07-06', '14:00:00', 'Office', 'General Inquiry'),
+(1032, '2019-07-20', '10:00:00', 'abc', 'abc');
 
 --
 -- Indexes for dumped tables
@@ -184,7 +198,7 @@ ALTER TABLE `post`
 -- Indexes for table `schedule`
 --
 ALTER TABLE `schedule`
-  ADD PRIMARY KEY (`SID`);
+  ADD PRIMARY KEY (`SID`) USING BTREE;
 
 --
 -- AUTO_INCREMENT for dumped tables
@@ -224,7 +238,7 @@ ALTER TABLE `post`
 -- AUTO_INCREMENT for table `schedule`
 --
 ALTER TABLE `schedule`
-  MODIFY `SID` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `SID` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1033;
 
 --
 -- Constraints for dumped tables
