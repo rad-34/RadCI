@@ -24,6 +24,7 @@
 
 <body>
 
+<<<<<<< HEAD
 <!-- Navigation -->
 <nav class="navbar navbar-expand-lg navbar-light fixed-top py-3" id="mainNav">
     <div class="container">
@@ -74,6 +75,11 @@
 
 <!-- Page Content -->
 <div class="container">
+=======
+
+    <!-- Page Content -->
+  <div class="container">
+>>>>>>> 43cdb0864f2a41a12381da906389b98dc69618a4
 
 <div class="row">
 

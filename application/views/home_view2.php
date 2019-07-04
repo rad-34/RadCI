@@ -2,7 +2,11 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
+<<<<<<< HEAD
     <title>Home11</title>
+=======
+    <title>Home</title>
+>>>>>>> 43cdb0864f2a41a12381da906389b98dc69618a4
     <meta charset="utf-8"> 
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -14,17 +18,26 @@
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <!-- <link href="<?php echo base_url(); ?>/assets/css/theme.css" rel="stylesheet" media="all"> -->
 
+<<<<<<< HEAD
     <!-- Plugin CSS -->
     <link href="<?php echo base_url(); ?>/assets/theme/vendor/magnific-popup/magnific-popup.css" rel="stylesheet">
 
     <!-- Theme CSS - Includes Bootstrap -->
     <link href="<?php echo base_url(); ?>/assets/theme/css/creative.min.css" rel="stylesheet">
+=======
+    <link href='<?php echo base_url(); ?>/assets/calender/packages/core/main.css' rel='stylesheet' />
+    <link href='<?php echo base_url(); ?>/assets/calender/packages/daygrid/main.css' rel='stylesheet' />
+
+    <script src='<?php echo base_url(); ?>/assets/calender/packages/core/main.js'></script>
+    <script src='<?php echo base_url(); ?>/assets/calender/packages/daygrid/main.js'></script>
+>>>>>>> 43cdb0864f2a41a12381da906389b98dc69618a4
 
   </head>
 
 <body>
 
 
+<<<<<<< HEAD
   <!-- Page Content -->
   <div class="container"> 
     <div class="card-column" >                
@@ -53,6 +66,39 @@
       </div>          
     </div>
   </div>             
+=======
+    <!-- Page Content -->
+    <div class="container"> 
+              <div class="card-column" >                
+                    <?php
+                    echo "\n";
+                          foreach($display->result() as $row){?>    
+<br>
+                           <div class="card" style="width: 50rem; ">
+                                <div class="card-body">
+                                  <h5 class="card-title"> <?php echo $row->title;?></h5>
+                                  <img style="width: 45rem; height: 18rem" class="card-img-top" src="<?php echo base_url('/assets/img/postpic.jpg')?>" alt="Card image cap">
+                                  <p class="card-text"><?php echo $row->post;?></p>
+                                </div>
+                                <ul class="list-group list-group-flush">
+                                  <li class="list-group-item">Date   :   <?php echo $row->date;?></li>
+                                  <li class="list-group-item">Sent By   :   <?php echo $row->sender;?></li>
+                                  <!--<li class="list-group-item">Vestibulum at eros</li>-->
+                                </ul>
+                                <div class="card-body">
+                                  <!--<a href="#" class="btn btn-primary">Like</a>
+                                  <a href="#" class="btn btn-primary">Comment</a>-->
+                                </div>
+                              </div>
+                             
+                             <?php }  ?>
+
+                               </div>
+                    
+                    </div>
+
+                          </div>             
+>>>>>>> 43cdb0864f2a41a12381da906389b98dc69618a4
 <br><br>
 
     <!-- Pagination -->
@@ -126,6 +172,7 @@
   </div>
 
 </div>
+<<<<<<< HEAD
 
 </div>
 
@@ -169,6 +216,58 @@
 <script src="<?php echo base_url(); ?>assets/theme/js/creative.min.js"></script>
 
 
+=======
+<!-- /.row -->
+
+</div>
+
+
+
+<script>
+
+      document.addEventListener('DOMContentLoaded', function() {
+        var calendarEl = document.getElementById('calendar');
+
+        var calendar = new FullCalendar.Calendar(calendarEl, {
+          plugins: [ 'dayGrid' ]
+        });
+
+        calendar.render();
+      });
+
+    </script>
+<div class="container"> 
+              <div class="card-column" >                
+                    <?php
+                    echo "\n";
+                          foreach($display->result() as $row){?>    
+<br>
+                           <div class="card" style="width: 50rem; ">
+                                <div class="card-body">
+                                  <h5 class="card-title"> <?php echo $row->title;?></h5>
+                                  <img style="width: 45rem; height: 18rem" class="card-img-top" src="<?php echo base_url('/assets/img/postpic.jpg')?>" alt="Card image cap">
+                                  <p class="card-text"><?php echo $row->post;?></p>
+                                </div>
+                                <ul class="list-group list-group-flush">
+                                  <li class="list-group-item">Date   :   <?php echo $row->date;?></li>
+                                  <li class="list-group-item">Sent By   :   <?php echo $row->sender;?></li>
+                                  <!--<li class="list-group-item">Vestibulum at eros</li>-->
+                                </ul>
+                                <div class="card-body">
+                                  <!--<a href="#" class="btn btn-primary">Like</a>
+                                  <a href="#" class="btn btn-primary">Comment</a>-->
+                                </div>
+                              </div>
+                             
+                             <?php }  ?>
+
+                               </div>
+                    
+                    </div>
+
+                          </div>             
+<br><br>
+>>>>>>> 43cdb0864f2a41a12381da906389b98dc69618a4
 
 </body>
 

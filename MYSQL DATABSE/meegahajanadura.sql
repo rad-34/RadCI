@@ -1,11 +1,17 @@
 -- phpMyAdmin SQL Dump
--- version 4.8.0.1
+-- version 4.7.9
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
+<<<<<<< HEAD:MYSQL DATABSE/meegahajanadura.sql
 -- Generation Time: Jul 04, 2019 at 11:44 PM
 -- Server version: 10.1.32-MariaDB
 -- PHP Version: 7.2.5
+=======
+-- Generation Time: Jul 04, 2019 at 05:28 PM
+-- Server version: 10.1.31-MariaDB
+-- PHP Version: 7.2.3
+>>>>>>> 43cdb0864f2a41a12381da906389b98dc69618a4:MYSQL DATABSE/rad.sql
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -19,7 +25,11 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
+<<<<<<< HEAD:MYSQL DATABSE/meegahajanadura.sql
 -- Database: `meegahajanadura`
+=======
+-- Database: `rad1`
+>>>>>>> 43cdb0864f2a41a12381da906389b98dc69618a4:MYSQL DATABSE/rad.sql
 --
 
 -- --------------------------------------------------------
