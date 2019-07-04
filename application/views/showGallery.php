@@ -8,10 +8,10 @@
  <div class="container">
  <form method="post" enctype="multipart/form-data" action="<?php echo base_url('index.php/Gallery/openAddImage'); ?>">
  		<br>
- 		<input type="file" name="image">
+ 		<input class="btn btn-success" type="file" name="image">
  		<br>
  		<br>
- 		<input type="submit" name="submit" value="Upload">
+ 		<input class="btn btn-info" type="submit" name="submit" value="Upload">
 
 
  	</form>
