@@ -114,14 +114,14 @@ margin-left: 4px;
 						<div class="input-group-prepend">
 							<span class="input-group-text"><i class="fas fa-user"></i></span>
 						</div>
-						<input type="text" name="username" class="form-control" placeholder="username">
+						<input type="text" name="username" class="form-control" placeholder="username"><br>
 						<span class="text-danger"><?php echo form_error('username'); ?></span>
 					</div>
 					<div class="input-group form-group">
 						<div class="input-group-prepend">
 							<span class="input-group-text"><i class="fas fa-key"></i></span>
 						</div>
-                        <input type="password" name="password" class="form-control" placeholder="password">
+                        <input type="password" name="password" class="form-control" placeholder="password"><br>
                         <span class="text-danger"><?php echo form_error('password'); ?></span>
 					</div>
 					<div class="row align-items-center remember">
