@@ -15,7 +15,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 <body>
 <div id="container">
 
-<form method=POST class="form-group" action="<?php base_url('index.php/Schedule_CI/update/');?><?php echo $rw->SID; ?>">
+<form method=POST class="form-group" action="<?php base_url();?>index.php/Schedule_CI/update/<?php echo $rw->SID; ?>">
     <div class="form-group col-xs-12 col-sm-12 col-md-12 jumbotron">
         <legend class="col-lg-10 col-lg-offset-2">Update Schedule</legend>
 			<div class="form-group col-xs-12 col-sm-12 col-md-12">
@@ -43,7 +43,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 				</div>
             </div>
             <div class="btn-group col-lg-10">                
-                    <a class="btn btn-primary btn-lg pull-left" href="<?php echo base_url();?>"> Back</a>
+                    <a class="btn btn-primary btn-lg pull-left" href="<?php echo base_url('index.php/Schedule_CI');?>">Back</a>
 					<input type="submit" value="Update" class="btn btn-success btn-lg pull-right">
             </div>
             

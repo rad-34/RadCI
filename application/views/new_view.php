@@ -45,7 +45,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 			<div class="form-group col-xs-12 col-sm-12 col-md-12">
 				<div class="col-lg-10 col-lg-offset-2">
 					<input type="submit" value="Submit" class="btn btn-success btn-lg">
-					<a class="btn btn-primary btn-lg pull-left" href="<?php echo base_url();?>"> Back</a>
+					<a class="btn btn-primary btn-lg pull-left" href="<?php echo base_url('index.php/Schedule_CI');?>">Back</a>
 				</div>
 			</div>
 		</div>
